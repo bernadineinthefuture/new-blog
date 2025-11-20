@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-
-
+import '../../Index.css';
 function ContactPage() {
   const [formInput, setFormInput] = useState({
     name: '',
@@ -21,15 +20,15 @@ function ContactPage() {
   return (
     <div>
       <form onSubmit={submitForm}>
-        <input
+        <input className="contact-style"
          minLength={5}
          placeholder="Name" value={formInput.name}
          onChange={(e) => setFormInput({...formInput, name: e.target.value})}
         />
-        <input placeholder="Email" value={formInput.email}
+        <input className="contact-style" placeholder="Email" value={formInput.email}
          onChange={(e) => setFormInput({...formInput, email: e.target.value})}/>
 
-        <textarea placeholder="Message"value={formInput.message}
+        <textarea className='contact-style' placeholder="Message"value={formInput.message}
          onChange={(e) => setFormInput({...formInput, message: e.target.value})} />
         <button type="submit">Submit</button>
       </form>

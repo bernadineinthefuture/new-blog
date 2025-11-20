@@ -8,6 +8,8 @@ import HomePage from './components/homepage/HomePage.jsx';
 import PostList from './components/postList/PostList.jsx';
 import CommonLayout from './components/layouts/CommonLayout.jsx';
 import BlogPost from './components/blog/BlogPost.jsx';
+import Login from './components/login/Login.jsx';
+import { AuthProvider } from './components/authWrapper/AuthProvider.jsx';
 
 
 
@@ -15,15 +17,17 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Routes>
-        <Route element={<CommonLayout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/posts" element={<PostList />} />
-        <Route path="/posts/:post_id" element={<BlogPost />} />
-        </Route>
-      </Routes>
-    
+      <AuthProvider>
+        <Routes>
+          <Route element={<CommonLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/posts" element={<PostList />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/posts/:post_id" element={<BlogPost />} />
+          </Route>
+        </Routes>
+      </AuthProvider>
     </ThemeProvider>
 
   );

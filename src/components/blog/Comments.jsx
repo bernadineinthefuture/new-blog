@@ -2,11 +2,16 @@ import React, {useEffect, useRef, useState} from 'react';
 import IndividualComment from './IndividualComment';
 import { useParams } from 'react-router';
 import axios from 'axios'; 
+import Login from '../login/Login';
+import { useAuth, useUserName } from '../authWrapper/AuthContext.js';
+import { Link } from 'react-router';
+
 
 function Comments(){
     const params = useParams(); 
     console.log(params.post_id);
-
+    const username = useUserName();
+    const {logout} = useAuth();
     const [comment, setComment] = useState({
         name: '',
         content: '',
@@ -30,7 +35,9 @@ function Comments(){
     };
 
     const focusOnCommentBox = () =>{
-        textboxRef.current.focus();
+        if (textboxRef.current) {
+            textboxRef.current.focus();
+        }
     }
 
     useEffect(() => {
@@ -40,10 +47,12 @@ function Comments(){
     return (
         <div className="mt-8">
             <h2>Comments</h2>
+        {username ? ( 
+        <div>
             <input
             value={comment.name}
             onChange={(e) => setComment({...comment, name: e.target.value})}
-            placeholder="Name"
+            placeholder={username}
         />
         <br></br>
         <br></br>
@@ -53,6 +62,9 @@ function Comments(){
         onChange={(e) => setComment({...comment, content: e.target.value})}
         placeholder="Add a comment"
         />
+        </div>
+            ):(
+                    <Link to="/login">Login to see comment box</Link>)}
         <br></br>
 
         <button

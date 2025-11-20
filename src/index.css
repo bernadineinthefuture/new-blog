@@ -24,7 +24,7 @@ nav ul{
   display: flex;
   padding: 0;
   align-items: center;
-  margin: 15px;
+  margin-left: px;
   gap: 20px;
 }
 
@@ -38,6 +38,8 @@ a {
   text-decoration: inherit;
   display: flex;
   flex-direction: column;
+  
+  
 }
 a:hover {
   color: #535bf2;
@@ -75,6 +77,26 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.login-style {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 96;
+  margin: 12px; 
+}
+.contact-style {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 96;
+  margin: 12px; 
+}
+.login-style button{
+  margin-top: 8px;
+  width: fit-content;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 footer{
   background-color: antiquewhite;
   padding: 20px;
