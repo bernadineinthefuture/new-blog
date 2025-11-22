@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import '../../Index.css';
+import '../../index.css';
 function ContactPage() {
   const [formInput, setFormInput] = useState({
     name: '',
